@@ -1,5 +1,4 @@
 import random
-import math
 # All things you may want dynamic for the simulation
 
 # (In terms of the 36 time units in a sim day)
@@ -9,9 +8,9 @@ scaredy_cat_wait_time = 8
 blogger_wait_time = 2 
 yearly_pass_wait_time = 1
 
-popsize = 10
-nor = 3 # Number of rides
-noa = 1 # Number of activities
+popsize = 100
+nor = 6 # Number of rides
+noa = 2 # Number of activities
 avg_time_r = .1 # Average time a ride takes
 avg_time_a = .25 # Average Time an activity takes
 
@@ -53,9 +52,19 @@ x = 0
 while x <= nor:
   i = random.randint(avg_time_r*100-5,avg_time_r*100+10)/100 # Big line of code basically making a number close to .1 of a time(2 minutes)
   r = random.randint(1+i*5,5+i*5) # Popularity of the ride, slightly influenced by the length
+  n = random.randint(2*(i+1),8(i+2))*5 # How many people can be on the ride at once, in increments of 5 because i dont want weird numbers, long ride more people
+  if x == 0:
+    r = 6 # garuntees theres at least one of "the big rides" incase rng hates you 
+  rides.append([x,i,n,r])
+  x+=1
+  
+while x <= noa:
+  i = random.randint(avg_time_a*100-5,avg_time_a*100+20)/100 # Big line of code basically making a number close to .25 of a time(5 minutes)
+  r = random.randint(1+i*5,5+i*5) # Popularity of the activity, slightly influenced by the length
+  n = random.randint(2,8)*5 # How many people can be on the ride at once, in increments of 5 because i dont want weird numbers
   if x == 0:
     r = 6 # garuntees theres at least one of "the big rides" incase rng hates you 
   rides.append([x,i,r])
-  x+=1
+  x+=1  
 # Across x(probably gonna be about 36) increments of time, the population will to activities and rides. 
 time = 0
