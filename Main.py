@@ -21,7 +21,7 @@ while x <= popsize:
 # This for loop creates 5 different catogories of people, each more petty than the last
 # 1 - Once in a lifetime: determined to ride certain rides
 # 2 - Every couple years: Will go for the big rides as long as they arent crazy long waits
-# 3 - Pussies - only go for minor ride and basic activities, wait doesnt matter too much
+# 3 - ScaredyCat - only go for minor ride and basic activities, wait doesnt matter too much
 # 4 - Yearly Pass - They can always go for a ride later if its too long, because they come a lot
 # 5 - Blogger - in the middle of the yearly pass and the every couple years, will wait a little longer than yearly pass and goes exclusivly on the popular rides
   i = random.randint(1,10)
@@ -34,6 +34,7 @@ while x <= popsize:
 
   elif i == 5:
     pop.append([x,3])
+    # ScaredyCat
 
   elif i < 3:
     pop.append([x,4])
@@ -46,3 +47,5 @@ while x <= popsize:
 
 # Across 36 increments of time, the population will to activities and rides. 
 _time = 0
+
+
