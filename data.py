@@ -14,6 +14,8 @@ noa = 2 # Number of activities
 avg_time_r = .1 # Average time a ride takes
 avg_time_a = .25 # Average Time an activity takes
 
+max_time: 36
+
 pop = []
 rides = []
 
@@ -58,13 +60,18 @@ while x <= nor:
   rides.append([x,i,n,r])
   x+=1
   
-while x <= noa:
+while x <= noa: # yes i literally just copy pasted this
   i = random.randint(avg_time_a*100-5,avg_time_a*100+20)/100 # Big line of code basically making a number close to .25 of a time(5 minutes)
   r = random.randint(1+i*5,5+i*5) # Popularity of the activity, slightly influenced by the length
   n = random.randint(2,8)*5 # How many people can be on the ride at once, in increments of 5 because i dont want weird numbers
   if x == 0:
     r = 6 # garuntees theres at least one of "the big rides" incase rng hates you 
-  rides.append([x,i,r])
+  rides.append([x,i,r,n])
   x+=1  
 # Across x(probably gonna be about 36) increments of time, the population will to activities and rides. 
 time = 0
+
+while time <= max_time:
+    selpop = 0 # The person selected for the next action
+    
+    
