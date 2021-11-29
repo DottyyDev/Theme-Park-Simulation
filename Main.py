@@ -1,22 +1,24 @@
 import random
-
+import math
 # All things you may want dynamic for the simulation
 
 # (In terms of the 36 time units in a sim day)
 lifetime_wait_time = 12
 couple_years_wait_time= 8
-
+scaredy_cat_wait_time = 8
 blogger_wait_time = 2 
 yearly_pass_wait_time = 1
 
-
-
-
-
+popsize = 10
+nor = 3 # Number of rides
+noa = 1 # Number of activities
+avg_time_r = .1 # Average time a ride takes
+avg_time_a = .25 # Average Time an activity takes
 
 pop = []
-popsize = 10
+
 x = 0
+# Procedural generation of the population of people, feel free to make more
 while x <= popsize:
 # This for loop creates 5 different catogories of people, each more petty than the last
 # 1 - Once in a lifetime: determined to ride certain rides
@@ -44,8 +46,15 @@ while x <= popsize:
     pop.append([x,5])
     # Blogger
   x += 1
+x = 0
 
-# Across 36 increments of time, the population will to activities and rides. 
-_time = 0
+# Procedural generation of rides
+while x <= nor:
+  i = random.randint(avg_time_r*100-5,avg_time_r*100+10)/100 # Big line of code basically making a number close to .1 of a time(2 minutes)
+  r = random.randint(1+i*5,5+i*5) # Popularity of the ride, slightly influenced by the length
+  if x == 0:
+    r = 6 # garuntees theres at least one of "the big rides" incase rng hates you 
+  
 
-
+# Across x(probably gonna be about 36) increments of time, the population will to activities and rides. 
+time = 0
