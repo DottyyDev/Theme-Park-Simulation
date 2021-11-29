@@ -16,6 +16,7 @@ avg_time_r = .1 # Average time a ride takes
 avg_time_a = .25 # Average Time an activity takes
 
 pop = []
+rides = []
 
 x = 0
 # Procedural generation of the population of people, feel free to make more
@@ -54,7 +55,7 @@ while x <= nor:
   r = random.randint(1+i*5,5+i*5) # Popularity of the ride, slightly influenced by the length
   if x == 0:
     r = 6 # garuntees theres at least one of "the big rides" incase rng hates you 
-  
-
+  rides.append([x,i,r])
+  x+=1
 # Across x(probably gonna be about 36) increments of time, the population will to activities and rides. 
 time = 0
