@@ -1,4 +1,5 @@
 import random
+import f
 # All things you may want dynamic for the simulation
 
 # (In terms of the 36 time units in a sim day)
